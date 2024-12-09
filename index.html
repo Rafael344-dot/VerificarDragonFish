@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555;
+}
+
+input[type="text"],
+textarea {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: green;
+}
+
+.message {
+    background-color: green;
+    border: 1px solid green;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+#messagesContainer {
+    margin-top: 20px;
+}
+
+#backButton {
+    background-color: #007bff;
+}
+
+#backButton:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: greenyellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vh;
+    margin: 0;
+}
+
+.container {
+    background: #f4f4f4;
+    padding: 0px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+input[type="password"] {
+  background-color:transparent;
+    width: 5%;
+    padding: 0px;
+    margin: 0px 0;
+    border: 0px solid #ccc;
+    border-radius: 5px;
+}
+
+subimit {
+    background-color: transparent /* Cor verde */
+    color: transparent;
+    
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button {
+  background-color: transparent;
+  
+  
+color:black;
+}
+
+button:hover {
+    background-color: transparent; /* Cor verde mais escura ao passar o mouse */
+}</style>
+    <title>Formulário</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Enviar Mensagem</h1>
+        <form id="messageForm">
+            <label for="message">NOME DO DISCORD E MENSAGENS:</label>
+            <textarea id="message" required></textarea>
+            <button type id="submit">Enviar</button>
+        </form>
+        
+        
+        
+        <div class="container">
+        <h1></h1>
+        <label for="adminPassword"></label>
+        <input type="password" id="adminPassword" required>
+        <button id="loginButton"></button>
+    </div>
+
+    <script>
+        const correctPassword = 'modAkilesofcytbmaxdesenvolvedor'; // Defina a senha do administrador aqui
+
+        document.getElementById('loginButton').addEventListener('click', function() {
+            const password = document.getElementById('adminPassword').value;
+            if (password === correctPassword) {
+                window.location.href = 'adm.html'; // Redireciona para adm.html
+            } else {
+                alert('Senha incorreta. Tente novamente.');
+            }
+        });
+    </script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+
+    <script>
+        document.getElementById('messageForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+            const message = document.getElementById('message').value;
+
+            // Recupera mensagens existentes ou inicializa um novo array
+            const messages = JSON.parse(localStorage.getItem('userMessages')) || [];
+            messages.push(message); // Adiciona a nova mensagem ao array
+            localStorage.setItem('userMessages', JSON.stringify(messages)); // Armazena o array atualizado
+
+            alert('Mensagem enviada com sucesso! obrigado o modder akiles verá'); // Mensagem de confirmação
+            document.getElementById('message').value = ''; // Limpa o campo de mensagem
+        });
+    </script>
+</body>
+</html>
